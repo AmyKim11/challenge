@@ -8,6 +8,7 @@ let toDos = []; //새로입력하는 것 뿐만 아니라 예전 데이터도 �
 
 function saveToDos(){
    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); //array를 string으로 바꿔줌
+
 }
 
 function deleteToDo(event){
@@ -34,6 +35,7 @@ function handleToDoSubmit(event){
    event.preventDefault();
    const newTodo = toDoInput.value; //newTodo에 toDoInput value값을 복사해 놓음. 
    toDoInput.value = "";
+
    const newTodoObject = {
       text:newTodo,
       id:Date.now(),
@@ -56,3 +58,4 @@ if(savedToDos !== null){
    toDos = parsedToDos; //예전 todos들을 복원해 toDos에 넣는다.
    parsedToDos.forEach(paintToDo); //array에 있는 각 item을 실행해 줌. 그 아이템들을 paintToDo로 보내 화면에 그려줌.
 }
+
